@@ -1,6 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
+from . import models
+
+#film list
+def books_list_view(request):
+    if request.method == 'GET':
+        book_list = models.Library.objects.filter().order_by('-id')
+        context = {'book_list': book_list}
+        return render(request, template_name='book.html', context=context)
+
+#detail list
+def book_detail_view(request, id):
+    if request.method == 'GET':
+        book_id = get_object_or_404(models.Library, id=id)
+        context = {'book_id': book_id}
+        return render(request, template_name='book_detail.html', context=context)
 
 # Create your views here.
 def about_me(request):
