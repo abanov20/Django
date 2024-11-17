@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_page',
     'hashtags',
+    'todo',
 ]
 
 MIDDLEWARE = [
