@@ -10,6 +10,7 @@ urlpatterns = [
     path('about_my_pets/', views.about_my_pets, name='about_my_pets'),
     path('system_time/', views.system_time, name='system_time'),
     path('', include('main_page.urls')),
+    path('', include('hashtags.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL,
             document_root=settings.MEDIA_ROOT)
