@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+<!-- Контент с информацией о книге -->
+<div class="container mt-4">
+    <div class="book-card">
+        <div class="card">
+            <img src="{{ book_id.image.url }}" class="card-img-top" alt="Книга">
+            <div class="card-body">
+                <h5 class="card-title">{{ book_id.title }}</h5>
+                <p class="card-text">{{ book_id.description }}</p>
+                <p><strong>Цена:</strong>{{ book_id.price }} сом</p>
+                <p><strong>Дата выхода:</strong>{{ book_id.start_book }}</p>
+                <p><strong>Жанр:</strong>{{ book_id.genre }}</p>
+                <p><strong>Почта:</strong>{{ book_id.gmail }}</p>
+                <p><strong>Автор:</strong>{{ book_id.author }}</p>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Блок для комментариев -->
+    <div class="comment-section">
+        <h5>Комментарии</h5>
+        <p>Общий рейтинг фильма - {{ book_id.average_rating|default:"Нет рейтинга" }}</p>
+        {% for i in book_id.review_book.all %}
+        <div class="comment">
+            <p> {{ i.created_at }}: {{ i.description }} <strong>Оценка:</strong> {{ i.marks }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Футер -->
+{% include 'footer.html' %}

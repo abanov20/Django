@@ -1,0 +1,12 @@
+{% include 'header.html' %}
+    {% for i in young %}
+    <!-- Одиночная карточка в центре -->
+    <div class="card" style="width: 18rem; margin: 0 auto;">
+      <img src="https://media.istockphoto.com/id/1290890812/ru/векторная/символ-хэштега-3d-тенденции-белый-тег-блог-на-красном-фоне-и-социальных-сетей-чат.jpg?s=612x612&w=0&k=20&c=bf9DACvDFYLMoYll7g9dSE3K1PXV0X5e74eb5aWE_Iw=" class="card-img-top" alt="Изображение">
+      <div class="card-body">
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p class="card-text">{{ i.price }}</p>
+      </div>
+    </div>
+     {% endfor %}
+{% include 'footer.html' %}
