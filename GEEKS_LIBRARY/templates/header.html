@@ -1,4 +1,4 @@
-{% load static %}
+        {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,15 +46,32 @@
                         </li>
                     </ul>
                 </li>
+
+
+
+                                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: yellow;">
+                        Basket CLASSES
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'create_todo' %}">Добавить заказ</a></li>
+                        <li><a class="dropdown-item" href="{% url 'todo_class_list'%}">Список заказов</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
-                    <a class="nav-link enable" href="#" style="color: yellow;">Регистрация</a>
+                    <a class="nav-link enable" href="{% url 'users:register' %}" style="color: yellow;">Регистрация</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link enable" href="#" style="color: yellow;">Другие книги</a>
+                    <a class="nav-link enable" href="{% url 'labirint_list' %}" style="color: yellow;">Другие книги</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+            <form  action="{% url 'search' %}" method="GET" class="d-flex" role="search">
+                <input class="form-control me-2" typeof="text" type="search" name="q" placeholder="Поиск" aria-label="Поиск">
                 <button class="btn btn-outline-success" type="submit" style="color: yellow; border-color: yellow;">
                     Поиск
                 </button>
@@ -62,4 +79,3 @@
         </div>
     </div>
 </nav>
-
