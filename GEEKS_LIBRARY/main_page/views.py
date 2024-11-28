@@ -22,15 +22,17 @@ class SearchView(generic.ListView):
         return context
 
 
-
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 #film list
+@method_decorator(cache_page(60*15), name='dispatch')
 class BookListView(generic.ListView):
     template_name = 'book.html'
     context_object_name = 'book_list'
     model = models.Library
 
     def get_queryset(self):
-        return self.model.objects.filter().order_by('-id')
+        return self.model.objects.select_related().order_by('-id')
 
 #detail list
 class BookDetailView(generic.DetailView):
