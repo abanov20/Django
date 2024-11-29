@@ -3,6 +3,8 @@
 <div class="container mt-4 content">
     <div class="row justify-content-center">
         {% for i in book_list %}
+        {% load cache %}
+        {% cache 600 book_list %}
         <!-- Пример карточки книги -->
         <div class="col-md-4 mb-4">
             <div class="card" style="width: 100%;">
@@ -15,8 +17,24 @@
                 </div>
             </div>
         </div>
+        {% endcache %}
         {% endfor %}
         <!-- Добавьте дополнительные карточки книг здесь -->
+        <div class="container mt-4 content">
+    <div class="row justify-content-center">
+        {% for i in device_list %}
+        <!-- Пример карточки девайса -->
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 100%;">
+                <img src="{{ i.image.url }}" class="card-img-top" alt="Обложка девайса">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.title }}</h5>
+                    <p class="card-text">{{ i.start_device }}</p>
+                    <a href="/device_detail/{{ i.id }}/" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
