@@ -14,6 +14,7 @@ urlpatterns = [
     path('', include('cbv.urls')),
     path('', include('parsing_labirint.urls')),
     path('', include('users.urls')),
+    path('', include('mobile_devices.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL,
             document_root=settings.MEDIA_ROOT)

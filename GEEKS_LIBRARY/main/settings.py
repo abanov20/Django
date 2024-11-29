@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users',
     'debug_toolbar',
     'django_extensions',
+    'mobile_devices'
 ]
 
 MIDDLEWARE = [
