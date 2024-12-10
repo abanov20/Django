@@ -2,11 +2,15 @@ from rest_framework import serializers
 from .models import Movie, Director, Review
 
 class MovieSerializer(serializers.ModelSerializer):
+    director = serializers.StringRelatedField()
+
     class Meta:
         model = Movie
         fields = '__all__'
 
 class MovieDetailSerializer(serializers.ModelSerializer):
+    director = serializers.StringRelatedField()
+
     class Meta:
         model = Movie
         fields = '__all__'
