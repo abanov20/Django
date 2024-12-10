@@ -45,4 +45,8 @@ def reviews_detail_list_api_view(request, id):
     data = ReviewsDetailSerializer(reviews).data
     return Response(data=data)
 
-
+@api_view(http_method_names=['GET'])
+def movies_reviews_list_api_view(request):
+    movies = Movie.objects.all()
+    serializer = MovieSerializer(movies, many=True)
+    return Response(serializer.data)
