@@ -26,12 +26,12 @@ class DirectorDetailSerializer(serializers.ModelSerializer):
 class ReviewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ['movie', 'text', 'stars']
+        fields = ['id' ,'movie', 'text', 'stars']
 
 class ReviewsDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ['movie', 'text', 'stars']
+        fields = ['id' ,'movie', 'text', 'stars']
 
 class MovieSerializer(serializers.ModelSerializer):
     director = serializers.StringRelatedField()
