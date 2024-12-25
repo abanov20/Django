@@ -110,3 +110,81 @@ class ReviewUpdateSerializer(ReviewValidateSerializer):
         if Movie.objects.filter(id__exact=movie.id).exclude(id=movie.id):
             raise ValidationError('Movie does not exist')
         return movie
+
+
+class MovieValidateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ['id', 'title', 'description', 'duration', 'director']
+
+class MovieCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ['title', 'description', 'duration', 'director']
+
+class MovieUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ['title', 'description', 'duration', 'director']
+
+class MovieDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ['id', 'title', 'description', 'duration', 'director']
+
+class MovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ['id', 'title', 'description', 'duration', 'director']
+
+# Director serializers
+class DirectorValidateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
+        fields = ['id', 'name']
+
+class DirectorCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
+        fields = ['name']
+
+class DirectorUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
+        fields = ['name']
+
+class DirectorDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
+        fields = ['id', 'name']
+
+class DirectorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
+        fields = ['id', 'name']
+
+# Review serializers
+class ReviewValidateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'text', 'movie', 'stars']
+
+class ReviewCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['text', 'movie', 'stars']
+
+class ReviewUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['text', 'movie', 'stars']
+
+class ReviewsDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'text', 'movie', 'stars']
+
+class ReviewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'text', 'movie', 'stars']
